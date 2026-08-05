@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Maloka! | 11/8 🎉❤️</title>
+    <meta name="description" content="احتفال خاص بعيد ميلاد ملوكة أغلى حد في حياتي - 11/8 ❤️">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Dancing+Script:wght@700&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- HTML5 Audio Element for Amr Diab - Makanak Fe Qalbi -->
+    <audio id="romantic-audio" loop preload="auto">
+        <source src="audio/song.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Canvas Background for Animated Hearts, Balloons & Sparkles -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- FLOATING MUSIC CONTROLLER -->
+    <div class="audio-control-container" id="audio-controls">
+        <button id="music-toggle-btn" class="glow-btn-circle" title="تشغيل / إيقاف الأغنية">
+            <i class="fa-solid fa-play" id="music-icon"></i>
+            <span class="music-wave-bars hidden" id="music-bars">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </span>
+        </button>
+
+        <div class="music-info-pill">
+            <span class="song-title">مكانك في قلبي - عمرو دياب 🌹</span>
+            <span class="song-subtitle">عيد ميلاد ملوكة ❤️</span>
+        </div>
+    </div>
+
+
+    <!-- MAIN WRAPPER -->
+    <main class="app-container">
+
+        <!-- ================= HERO BIRTHDAY LANDING ================= -->
+        <section id="hero-section" class="screen-section">
+            <div class="hero-card glass-panel text-center">
+                <div class="bday-badge-top glow-pulse">
+                    <i class="fa-solid fa-cake-candles"></i>
+                    <span>11 / 8 - عيد ميلاد ملك قلبي ✨</span>
+                </div>
+                
+                <h1 class="hero-title font-en">Happy Birthday Maloka! 🎉</h1>
+                <p class="hero-subtitle">كل سنة وأنتي طيبة يا أغلى ملوكة في الدنيا كلها ❤️</p>
+                <p class="hero-arabic-sub">اليوم اللي اتولد فيه أجمل ضحكة وأطيب قلب ينور دنيتي ✨</p>
+
+                <!-- Live Countdown to Birthday -->
+                <div class="countdown-wrapper">
+                    <span class="countdown-label">العد التنازلي لعيد ميلاد ملوكة ⏳</span>
+                    <div class="countdown-grid" id="bday-countdown">
+                        <div class="time-box"><span id="days">00</span><small>يوم</small></div>
+                        <div class="time-box"><span id="hours">00</span><small>ساعة</small></div>
+                        <div class="time-box"><span id="minutes">00</span><small>دقيقة</small></div>
+                        <div class="time-box"><span id="seconds">00</span><small>ثانية</small></div>
+                    </div>
+                </div>
+
+                <!-- Hero Photo Collage Stack -->
+                <div class="hero-photo-stack" id="hero-photo-stack">
+                    <img src="images/img1.jpeg" alt="Maloka Birthday Photo" class="stack-img img-1">
+                    <img src="images/img2.jpeg" alt="Maloka Birthday Photo" class="stack-img img-2">
+                    <img src="images/img3.jpeg" alt="Maloka Birthday Photo" class="stack-img img-3">
+                </div>
+
+                <div class="hero-actions">
+                    <button id="start-journey-btn" class="btn-romantic btn-lg glow-button">
+                        <i class="fa-solid fa-gift"></i>
+                        ابدأي الحفل وشغّلي الأغنية 🎵
+                    </button>
+                </div>
+            </div>
+
+            <div class="scroll-down-hint">
+                <span>اسحبي للأسفل لشوف المفاجآت ✨</span>
+                <i class="fa-solid fa-chevron-down bounce"></i>
+            </div>
+        </section>
+
+
+        <!-- ================= BIRTHDAY CONTENT ================= -->
+        <div id="journey-content" class="journey-content">
+
+            <!-- SECTION 1: INTERACTIVE BIRTHDAY CAKE & WISH -->
+            <section class="content-section" id="cake-section">
+                <div class="section-header text-center">
+                    <span class="tag-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> أمنية عيد الميلاد</span>
+                    <h2 class="section-title">تورتة عيد ميلاد ملوكة 🎂🕯️</h2>
+                    <p class="section-desc">اتمني أمنية من قلبك واضغطي على الشمعة عشان تنفخيها! ✨</p>
+                </div>
+
+                <div class="cake-container glass-panel text-center">
+                    <div class="cake-illustration" id="cake-wrapper">
+                        <!-- Flames -->
+                        <div class="candle-flames" id="flames-container">
+                            <span class="flame flame-1"></span>
+                            <span class="flame flame-2"></span>
+                            <span class="flame flame-3"></span>
+                        </div>
+                        <!-- Candles -->
+                        <div class="candles-row">
+                            <div class="candle"></div>
+                            <div class="candle"></div>
+                            <div class="candle"></div>
+                        </div>
+                        <!-- Cake Tiers -->
+                        <div class="cake-tier tier-top"><span>11/8</span></div>
+                        <div class="cake-tier tier-middle"><span>Maloka</span></div>
+                        <div class="cake-tier tier-bottom"><span>❤️ Happy Birthday ❤️</span></div>
+                        <div class="cake-plate"></div>
+                    </div>
+
+                    <button id="blow-candle-btn" class="btn-romantic btn-md glow-gold-btn margin-top-md">
+                        <i class="fa-solid fa-wind"></i>
+                        انفخي الشمعة اتمني أمنية 🎂✨
+                    </button>
+
+                    <div id="wish-revealed-msg" class="wish-card hidden">
+                        <i class="fa-solid fa-heart-circle-bolt wish-icon"></i>
+                        <h3>أمنية مستجابة يا رب! 🌸</h3>
+                        <p>"أتمنى تفضلي دايماً ضاحكة، سعيدة، وجمبي وفي قلبي للتردد الأخير في عمري ❤️"</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- SECTION 2: INTERACTIVE GIFT BOX -->
+            <section class="content-section" id="gift-section">
+                <div class="section-header text-center">
+                    <span class="tag-badge"><i class="fa-solid fa-box-open"></i> هدية خاصة</span>
+                    <h2 class="section-title">افتحي هدية عيد ميلادك 🎁✨</h2>
+                    <p class="section-desc">اضغطي على صندوق الهدايا عشان تكتشفي المفاجأة اللي مستنياكي..</p>
+                </div>
+
+                <div class="gift-box-wrapper text-center">
+                    <div class="gift-card glass-panel" id="gift-box-btn">
+                        <div class="gift-icon-container">
+                            <i class="fa-solid fa-gift gift-3d bounce-gentle"></i>
+                        </div>
+                        <div class="gift-instruction">
+                            <span>إضغطي هنا لفتح الصندوق ✨</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- SECTION 3: REASONS WHY MALOKA IS SPECIAL (11 Reasons for 11/8) -->
+            <section class="content-section" id="reasons-section">
+                <div class="section-header text-center">
+                    <span class="tag-badge"><i class="fa-solid fa-star"></i> 11/8 مميز جداً</span>
+                    <h2 class="section-title">11 سبب ليه بعشقك يا ملوكة 💖</h2>
+                    <p class="section-desc">اضغطي على كل كارت لتكشفي السبب ❤️</p>
+                </div>
+
+                <div class="reasons-grid" id="reasons-grid">
+                    <!-- Javascript populates 11 romantic reason cards -->
+                </div>
+            </section>
+
+
+            <!-- SECTION 4: PHOTO MEMORIES SHOWCASE (14 Photos Carousel & Polaroid) -->
+            <section class="content-section" id="gallery-section">
+                <div class="section-header text-center">
+                    <span class="tag-badge"><i class="fa-solid fa-images"></i> ألبوم ذكرياتنا</span>
+                    <h2 class="section-title">صور ملوكة الحلوة 📸❤️</h2>
+                    <p class="section-desc">اسحبي الـ Carousel أو اضغطي على أي صورة تكبريها ✨</p>
+                </div>
+
+                <!-- Featured Memory Carousel Slider -->
+                <div class="featured-carousel-box glass-panel">
+                    <div class="carousel-container">
+                        <button class="carousel-nav prev-btn" id="prev-slide-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                        
+                        <div class="carousel-slide" id="carousel-slide">
+                            <img id="carousel-img" src="images/img1.jpeg" alt="Maloka Birthday Memory">
+                            <div class="carousel-overlay">
+                                <span id="carousel-caption" class="carousel-caption">كل سنة وأنتي الضحكة اللي بتنور أيامي ❤️</span>
+                            </div>
+                        </div>
+
+                        <button class="carousel-nav next-btn" id="next-slide-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                    </div>
+                    <div class="carousel-counter" id="carousel-counter">صورة 1 من 14</div>
+                </div>
+
+                <!-- All 14 Photos Polaroid Grid -->
+                <div class="photo-gallery-grid" id="photo-gallery">
+                    <!-- Javascript renders all 14 photo polaroid cards here -->
+                </div>
+            </section>
+
+
+            <!-- SECTION 5: BIRTHDAY LOVE LETTER ENVELOPE -->
+            <section class="content-section" id="letter-section">
+                <div class="section-header text-center">
+                    <span class="tag-badge"><i class="fa-solid fa-envelope-open-text"></i> جواب عيد الميلاد</span>
+                    <h2 class="section-title">رسالة من أعماق قلبي 💌</h2>
+                    <p class="section-desc">اضغطي على ختم الشمع عشان تفتحي جواب عيد ميلادك..</p>
+                </div>
+
+                <div class="envelope-wrapper">
+                    <div class="envelope-card" id="envelope-btn">
+                        <div class="wax-seal">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>إلى ملوكة ❤️</span>
+                        </div>
+                        <div class="envelope-tag">إضغطي لفتح الجواب ✨</div>
+                    </div>
+                </div>
+            </section>
+
+        </div> <!-- End Journey Content -->
+
+    </main>
+
+
+    <!-- ================= MODALS & POPUPS ================= -->
+
+    <!-- BIRTHDAY LOVE LETTER MODAL -->
+    <div class="letter-modal hidden" id="letter-modal">
+        <div class="letter-paper glass-panel-light">
+            <button class="close-letter-btn" id="close-letter-btn"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="letter-header text-center">
+                <i class="fa-solid fa-heart-circle-check heart-stamp"></i>
+                <h2>ملك حبيبتي ونور عيني.. ❤️</h2>
+                <span class="letter-date">11 / 8 - رسالة عيد الميلاد من قلبي</span>
+            </div>
+
+            <div class="letter-body">
+                <p class="highlight-quote">"كل سنة وأنتي طيبة وأقرب لقلبي من أي حد في الدنيا دي كلها ❤️"</p>
+
+                <p class="letter-paragraph">
+                    11/8 مش مجرد تاريخ في السنة، ده اليوم اللي اتولد فيه أجمل وأطهر قلب عرفته في حياتي، اليوم اللي غير دنيتي وخلاها مليانة ضحك وفرح وحب ✨
+                </p>
+
+                <p class="letter-paragraph glow-text">
+                    فالاخير أنا عايز أقولك إني بحبك جداً ❤️ وانك اغلي حد عندي ف حياتي كلها ومش عايز غيرك من الدنيا دي ❤️
+                </p>
+
+                <p class="letter-paragraph">
+                    ربنا يديمك في حياتي ويسعد قلبك زي ما بتسعديني دايماً، ويكتبلنا نكون سوا في كل عيد ميلاد جاي ونحقق كل أحلامنا سوا 🌸
+                </p>
+
+                <div class="letter-footer font-en text-center">
+                    <p class="final-love-sign">Happy Birthday My Queen Maloka! 😘👑</p>
+                </div>
+            </div>
+
+            <div class="letter-decorations text-center">
+                <span>💖</span><span>🌸</span><span>✨</span><span>🎂</span><span>💖</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- GIFT CERTIFICATE MODAL -->
+    <div id="gift-modal" class="modal-overlay hidden">
+        <div class="celebration-card glass-panel animate-zoom text-center">
+            <button class="close-letter-btn" id="close-gift-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="sparkle-stars">✨ 🎉 🎂 🎉 ✨</div>
+            <div class="celebration-icon">🎁</div>
+            <h2 class="celebration-title">هدية عيد ميلاد ملوكة! ❤️🎉</h2>
+            <p class="celebration-text">أحلى هدية في الدنيا هي وجودك في حياتي، وده وعد رسمي من قلبي ليكي!</p>
+            
+            <div class="love-certificate">
+                <div class="cert-border">
+                    <span class="cert-badge">وثيقة حُب وتعهُّد أبدية 📜</span>
+                    <h3>شهادة ملكة القلوب - ملوكة</h3>
+                    <p>أتعهّد بأن أظل السند والأمان، وأن أصنع لكِ الضحكة والفرحة في كل يوم من عمرك ❤️</p>
+                    <div class="cert-sign">حبيبك اللي بيحبك جداً 😘</div>
+                </div>
+            </div>
+
+            <button id="gift-modal-ack-btn" class="btn-romantic btn-lg margin-top-md">
+                <i class="fa-solid fa-heart"></i> بحبك يا ملوكتي
+            </button>
+        </div>
+    </div>
+
+
+    <!-- LIGHTBOX FOR PHOTOS -->
+    <div id="lightbox-modal" class="modal-overlay hidden">
+        <span class="close-lightbox" id="close-lightbox-btn">&times;</span>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="Memory Image">
+        <div class="lightbox-caption" id="lightbox-caption">عيد ميلاد ملوكة الحلوة ❤️</div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
